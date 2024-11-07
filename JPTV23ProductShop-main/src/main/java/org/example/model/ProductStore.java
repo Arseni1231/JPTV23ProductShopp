@@ -1,5 +1,4 @@
-package org.example;
-import org.example.model.Product;
+package org.example.model;
 
 import java.util.ArrayList;
 import java.util.HashSet;

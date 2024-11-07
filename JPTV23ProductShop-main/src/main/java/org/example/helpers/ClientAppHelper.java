@@ -1,4 +1,4 @@
-package org.example;
+package org.example.helpers;
 
 import org.example.intefaces.AppHelper;
 import org.example.intefaces.Input;
@@ -23,6 +23,8 @@ public class ClientAppHelper implements AppHelper<Client> {
             client.setLastName(input.nextLine());
             System.out.print("Телефон: ");
             client.setPhone(input.nextLine());
+            System.out.print("Email пользователя: ");
+            client.setEmail(input.nextLine());
             return client;
         }catch (Exception e){
             return null;
@@ -40,7 +42,8 @@ public class ClientAppHelper implements AppHelper<Client> {
                         clients.get(i).getLastName(),
                         clients.get(i).getPhone(),
                         clients.get(i).getClientId(),
-                        clients.get(i).getPhone()
+                        clients.get(i).getEmail()
+
                 );
             }
             return true;
@@ -48,5 +51,10 @@ public class ClientAppHelper implements AppHelper<Client> {
             System.out.println("Error: "+e.toString());
             return false;
         }
+    }
+
+    @Override
+    public List<Client> edit(List<Client> listClazz) {
+        return List.of();
     }
 }

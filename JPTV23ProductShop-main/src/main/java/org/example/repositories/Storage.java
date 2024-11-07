@@ -1,4 +1,6 @@
 package org.example.repositories;
+import org.example.intefaces.Repository;
+
 import java.util.List;
 import java.util.ArrayList;
 import java.io.*;

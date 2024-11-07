@@ -1,18 +1,22 @@
 package org.example.model;
-import java.util.ArrayList;
-import java.util.HashSet;
+import java.io.Serializable;
+import java.util.UUID;
 
-public class Client {
+public class Client implements Serializable {
 
-    private int clientId;
+    private UUID clientId;
     private String firstname;
     private String lastname;
     private String email;
     private String phone;
 
+    public Client(){
+        this.clientId = UUID.randomUUID();
+    }
+
     // Конструктор для инициализации клиента
-    public Client(int clientId, String firstname, String email, String phone) {
-        this.clientId = clientId;
+    public Client(String firstname, String lastname, String email, String phone) {
+        this.clientId = UUID.randomUUID();
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
@@ -20,13 +24,14 @@ public class Client {
     }
 
     // Геттеры и сеттеры для полей
-    public int getClientId() {
+    public UUID getClientId() {
         return clientId;
     }
 
-    public void setClientId(int clientId) {
+    public void setClientId(UUID clientId) {
         this.clientId = clientId;
     }
+
 
     public String getName() {
         return firstname;
@@ -72,15 +77,16 @@ public class Client {
         if (o == null || getClass() != o.getClass()) return false;
 
         Client client = (Client) o;
-        return clientId.equals(client.clientId) && firstname.equals(client.firstname) && lastname.equals(client.lastname) && phone.equals(client.phone);
+        return clientId.equals(client.clientId) && firstname.equals(client.firstname) && lastname.equals(client.lastname) && email.equals(client.email) && phone.equals(client.phone);
     }
 
     @Override
     public int hashCode() {
         int result = clientId.hashCode();
-        result = 31 * result + firstName.hashCode();
-        result = 31 * result + lastName.hashCode();
+        result = 31 * result + firstname.hashCode();
+        result = 31 * result + lastname.hashCode();
         result = 31 * result + phone.hashCode();
+        result = 31 * result + email.hashCode();
         return result;
     }
 
@@ -91,6 +97,11 @@ public class Client {
                 ", firstName='" + firstname + '\'' +
                 ", lastName='" + lastname + '\'' +
                 ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
                 '}';
+    }
+
+    public Object getFirstName() {
+        return null;
     }
 }

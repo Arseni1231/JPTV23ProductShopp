@@ -1,5 +1,7 @@
 package org.example;
 import org.example.model.Product;
+import org.example.model.ProductStore;
+import org.example.services.ProductService;
 
 import java.util.Scanner;
 import java.util.Set;

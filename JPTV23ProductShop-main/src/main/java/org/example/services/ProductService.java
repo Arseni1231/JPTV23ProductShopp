@@ -1,4 +1,5 @@
-package org.example;
+package org.example.services;
+import org.example.model.ProductStore;
 import org.example.model.Product;
 
 import java.util.List;
